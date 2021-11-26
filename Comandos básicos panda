@@ -1,0 +1,50 @@
+import pandas as pd
+df = pd.read_csv('cars.csv')
+df
+
+////////
+
+df['price_usd'].mean()
+
+///////
+
+df['price_usd'].median()
+
+//////
+
+df['price_usd'].plot.hist(bins=20)
+
+//////
+
+import seaborn as sns
+
+sns.displot(df, x = 'price_usd', hue = 'manufacturer_name')
+
+//////
+
+sns.displot(df, x="price_usd", hue="engine_type")
+
+//////
+
+sns.displot(df, x='price_usd', hue = 'engine_type', multiple='stack')
+
+//////
+
+df.groupby('engine_type').count()
+
+//////
+
+Q7_df = df[(df['manufacturer_name']=='Audi') & (df['model_name']=='Q7')]
+
+///////
+
+sns.histplot(Q7_df, x='price_usd', hue = 'year_produced')
+
+
+
+
+
+
+
+
+
